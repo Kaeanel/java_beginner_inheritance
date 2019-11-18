@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        Dog dog = new Dog();
+        Object[] list = {new Dog(), new DogFood()};
         dog.makeSound();
 
     }
@@ -19,4 +19,8 @@ class Dog extends Animal{
     Dog() {
         sound = "bark";
     }
+}
+
+class DogFood {
+
 }
