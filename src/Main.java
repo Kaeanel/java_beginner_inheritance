@@ -1,27 +1,37 @@
 public class Main {
 
     public static void main(String[] args) {
-        Object[] list = {new Dog(), new DogFood()};
-        Dog dog = (Dog) list[0];  // (Dog) means I'm using a cast
-        for (Object object : list) {
-            if (object instanceof Animal) {
-                ((Animal) object).makeSound(); // correcto, usando el parénteis ((Animal) object) hacemos que se haga el cast en primer lugar
-            }
-        }
+        Dog dog = new Dog();
+        dog.makeSound();
     }
 }
 
 class Animal {
     String sound = "";
 
+    Animal(String sound) {
+        this.sound = sound;
+    }
+
     void makeSound(){
         System.out.println(sound);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
 
 class Dog extends Animal{
     Dog() {
-        sound = "bark";
+        super("bark");
+    }
+
+    @Override
+    void makeSound() {
+        super.makeSound();
+        System.out.println("*wags tail*");
     }
 }
 
