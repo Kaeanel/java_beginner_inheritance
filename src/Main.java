@@ -2,16 +2,18 @@ public class Main {
 
     public static void main(String[] args) {
         Dog dog = new Dog();
-        dog.makeSound();
+        dog.findFood();
     }
 }
 
-class Animal {
+abstract class Animal {
     String sound = "";
 
     Animal(String sound) {
         this.sound = sound;
     }
+
+    abstract void findFood();
 
     void makeSound(){
         System.out.println(sound);
@@ -26,6 +28,12 @@ class Animal {
 class Dog extends Animal{
     Dog() {
         super("bark");
+    }
+
+    @Override
+    void findFood() {
+        System.out.println("*looks at human*");
+        makeSound();
     }
 
     @Override
